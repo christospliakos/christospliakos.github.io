@@ -3,46 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LFMT • UAV & AI‑CF Project</title>
-  <!-- Google Fonts -->
+  <title>LFMT • UAV & AI‑CF Project</title>
+  <!-- Webfont -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <!-- Simple styling -->
   <style>
-    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body {
-      margin: 0; padding: 0;
-      display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-      min-height: 100vh; background: #f4f8fc;
-      color: #1e293b;
+    :root{
+      --c-bg:#f4f8fc;
+      --c-primary:#0274b0;
+      --c-primary-d:#016195;
+      --c-dark:#1e293b;
+      --radius:0.75rem;
     }
-    header { text-align: center; margin-top: 3rem; }
-    header img { width: 120px; }
-    h1 { font-size: 1.8rem; margin: 1rem 0 0.25rem; }
-    h2 { font-size: 1rem; font-weight: 400; margin: 0 0 1.5rem; color: #475569; }
+    *{box-sizing:border-box;font-family:'Inter',sans-serif;margin:0;padding:0}
+    body{display:flex;flex-direction:column;align-items:center;min-height:100vh;background:var(--c-bg);color:var(--c-dark);padding:0 1rem}
+    header{margin-top:3.5rem;text-align:center}
+    header img{width:110px}
+    h1{font-size:clamp(1.6rem,4vw,2rem);font-weight:700;margin:1rem 0 .3rem}
+    h2{font-size:clamp(.9rem,2.5vw,1rem);font-weight:400;color:#475569;margin-bottom:2rem}
 
-    /* Buttons */
-    .link-btn {
-      display: block; width: 280px; max-width: 90vw;
-      background: #0284c7; color: #fff; text-decoration: none; text-align: center;
-      padding: 0.8rem 1.2rem; margin: 0.4rem auto; border-radius: 0.75rem;
-      font-size: 1rem; font-weight: 600;
-      transition: background 0.2s ease-in-out, transform 0.15s ease-in-out;
+    /* link buttons */
+    .link-btn{
+      display:block;max-width:320px;width:90vw;background:var(--c-primary);color:#fff;text-decoration:none;text-align:center;
+      padding:.9rem 1.1rem;margin:.45rem auto;border-radius:var(--radius);font-weight:600;font-size:1.05rem;
+      box-shadow:0 2px 6px rgba(0,0,0,.08);transition:.18s ease-in-out;
     }
-    .link-btn:hover { background: #0369a1; transform: translateY(-2px); }
+    .link-btn:hover{background:var(--c-primary-d);transform:translateY(-3px);box-shadow:0 4px 10px rgba(0,0,0,.12)}
 
-    /* Footer */
-    footer { margin-top: auto; padding: 2rem 0 1rem; font-size: 0.8rem; color: #94a3b8; text-align: center; }
+    /* footer */
+    footer{margin-top:auto;padding:2rem 0 1rem;font-size:.8rem;color:#94a3b8;text-align:center}
   </style>
 </head>
 <body>
   <header>
-    <!-- Logo file stored locally in same repo -->
-    <img src="logoENG.png" alt="LFMT logo" />
-    <h1>LFMT • UAV Design & AI‑CF Project</h1>
-    <h2>Resources & social links from the paper presentation</h2>
+    <img src="logo.png" alt="LFMT logo" />
+    <h1>LFMT • UAV Design & AI‑CF Project</h1>
+    <h2>Resources & social links from the paper presentation</h2>
   </header>
 
-  <!-- Main link hub -->
+  <!-- Links hub -->
   <a class="link-btn" href="https://lfmt.gr/" target="_blank">LFMT Lab Website</a>
   <a class="link-btn" href="https://www.linkedin.com/company/uav-irc/" target="_blank">UAV-iRC LinkedIn Page</a>
   <a class="link-btn" href="https://www.linkedin.com/in/chris-pliakos/ " target="_blank">Presenter LinkedIn</a>
