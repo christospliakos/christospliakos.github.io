@@ -2,115 +2,159 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LFMT • UAV & AI‑CF Project</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LFMT • UAV & AI-CF Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     :root {
-      --c-bg: linear-gradient(145deg, #e6f0fa, #f4f8fc);
-      --c-primary: #0274b0;
-      --c-primary-d: #016195;
-      --c-dark: #1e293b;
-      --radius: 0.75rem;
+      --grad-1: #4facfe;
+      --grad-2: #00f2fe;
+      --glass-bg: rgba(255,255,255,0.15);
+      --text-light: #eef4fb;
+      --radius: 1rem;
+      --transition: 0.3s ease-in-out;
     }
 
-    * {
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin:0; padding:0; }
     body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      background: var(--c-bg);
-      color: var(--c-dark);
-      padding: 0 1rem;
-      animation: fadeIn 1s ease-in;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--grad-1), var(--grad-2));
+      color: var(--text-light);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      overflow-x:hidden;
+      position:relative;
+    }
+    /* floating background blobs */
+    body::before, body::after {
+      content:'';
+      position:absolute;
+      border-radius:50%;
+      opacity:0.6;
+      animation: float 8s ease-in-out infinite alternate;
+    }
+    body::before {
+      width:500px; height:500px;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.3), transparent);
+      top:-200px; left:-200px;
+    }
+    body::after {
+      width:400px; height:400px;
+      background: radial-gradient(circle at bottom right, rgba(255,255,255,0.2), transparent);
+      bottom:-150px; right:-150px;
+      animation-duration:10s;
+    }
+    @keyframes float {
+      to { transform: translateY(20px) translateX(20px); }
     }
 
     header {
-      margin-top: 3rem;
-      text-align: center;
+      text-align:center;
+      padding:4rem 1rem 2rem;
+      z-index:1;
     }
-
     header img {
-      width: 120px;
-      margin-bottom: 1rem;
+      width:100px;
+      margin-bottom:1rem;
     }
-
     h1 {
-      font-size: clamp(1.6rem, 4vw, 2rem);
-      font-weight: 700;
+      font-size:clamp(1.8rem,5vw,2.5rem);
+      font-weight:700;
+      background: linear-gradient(90deg, #fff, rgba(255,255,255,0.7));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom:0.5rem;
     }
-
     h2 {
-      font-size: clamp(1rem, 2.5vw, 1.1rem);
-      font-weight: 400;
-      color: #475569;
-      margin: 0.5rem 0 2rem;
+      font-size:clamp(1rem,3vw,1.2rem);
+      font-weight:400;
+      opacity:0.85;
+      margin-bottom:3rem;
     }
 
-    .link-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      max-width: 340px;
-      width: 100%;
-      background: var(--c-primary);
-      color: white;
-      text-decoration: none;
-      text-align: center;
-      padding: 1rem 1.2rem;
-      margin: 0.5rem auto;
+    /* grid of cards */
+    .links {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:1rem;
+      width:100%;
+      max-width:900px;
+      padding:0 1rem;
+      z-index:1;
+    }
+    .link-card {
+      display:flex;
+      align-items:center;
+      padding:1rem 1.5rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
       border-radius: var(--radius);
-      font-weight: 600;
-      font-size: 1.05rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      transition: all 0.2s ease-in-out;
+      text-decoration:none;
+      color: #fff;
+      font-weight:600;
+      box-shadow:0 4px 30px rgba(0,0,0,0.1);
+      opacity:0;
+      transform: translateY(20px);
+      transition: var(--transition);
     }
-
-    .link-btn:hover {
-      background: var(--c-primary-d);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    .link-card i {
+      font-size:1.5rem;
+      margin-right:0.75rem;
+      flex-shrink:0;
+    }
+    .link-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow:0 8px 35px rgba(0,0,0,0.2);
     }
 
     footer {
-      margin-top: auto;
-      padding: 2rem 0 1rem;
-      font-size: 0.8rem;
-      color: #94a3b8;
-      text-align: center;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      margin-top:auto;
+      padding:2rem 1rem 1rem;
+      font-size:0.8rem;
+      opacity:0.7;
+      text-align:center;
+      z-index:1;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="logoENG.png" alt="LFMT logo" />
+    <img src="logoENG.png" alt="LFMT logo"/>
     <h1>LFMT • Injecting AI into UAV Design</h1>
     <h2>Presentation resources, downloads & social links</h2>
   </header>
 
-  <a class="link-btn" href="https://lfmt.gr/" target="_blank"><i class="fas fa-globe"></i> LFMT Lab Website</a>
-  <a class="link-btn" href="https://www.linkedin.com/company/uav-irc/" target="_blank"><i class="fab fa-linkedin"></i> UAV-iRC LinkedIn Page</a>
-  <a class="link-btn" href="https://www.linkedin.com/in/chris-pliakos/" target="_blank"><i class="fab fa-linkedin"></i> Presenter LinkedIn</a>
-  <a class="link-btn" href="https://scholar.google.com/citations?user=_JL17xsAAAAJ&hl=el" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar Profile</a>
-  <a class="link-btn" href="/assets/paper_AIAA.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Download the Conference Paper</a>
-  <a class="link-btn" href="mailto:pliakosc@auth.gr"><i class="fas fa-envelope"></i> Contact the Team</a>
+  <div class="links">
+    <a class="link-card" href="https://lfmt.gr/" target="_blank"><i class="fas fa-globe"></i>LFMT Lab Website</a>
+    <a class="link-card" href="https://www.linkedin.com/company/uav-irc/" target="_blank"><i class="fab fa-linkedin"></i>UAV-iRC LinkedIn</a>
+    <a class="link-card" href="https://www.linkedin.com/in/chris-pliakos/" target="_blank"><i class="fab fa-linkedin"></i>Presenter LinkedIn</a>
+    <a class="link-card" href="https://scholar.google.com/citations?user=_JL17xsAAAAJ&hl=el"
+       target="_blank"><i class="fas fa-graduation-cap"></i>Google Scholar</a>
+    <a class="link-card" href="/assets/paper_AIAA.pdf" target="_blank"><i class="fas fa-file-pdf"></i>Download Paper</a>
+    <a class="link-card" href="mailto:pliakosc@auth.gr"><i class="fas fa-envelope"></i>Contact the Team</a>
+  </div>
 
-  <footer>
-    © 2025 Laboratory for Fluid Mechanics & Turbomachinery, AUTH
-  </footer>
+  <footer>© 2025 Laboratory for Fluid Mechanics & Turbomachinery, AUTH</footer>
+
+  <script>
+    // simple fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = 1;
+          e.target.style.transform = 'translateY(0)';
+          observer.unobserve(e.target);
+        }
+      });
+    }, {threshold: 0.3});
+
+    document.querySelectorAll('.link-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
 </body>
 </html>
