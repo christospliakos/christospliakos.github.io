@@ -3,53 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LFMT • UAV & AI‑CF Project</title>
-  <!-- Webfont -->
+  <title>LFMT • UAV & AI‑CF Project</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    :root{
-      --c-bg:#f4f8fc;
-      --c-primary:#0274b0;
-      --c-primary-d:#016195;
-      --c-dark:#1e293b;
-      --radius:0.75rem;
+    :root {
+      --c-bg: linear-gradient(145deg, #e6f0fa, #f4f8fc);
+      --c-primary: #0274b0;
+      --c-primary-d: #016195;
+      --c-dark: #1e293b;
+      --radius: 0.75rem;
     }
-    *{box-sizing:border-box;font-family:'Inter',sans-serif;margin:0;padding:0}
-    body{display:flex;flex-direction:column;align-items:center;min-height:100vh;background:var(--c-bg);color:var(--c-dark);padding:0 1rem}
-    header{margin-top:3.5rem;text-align:center}
-    header img{width:110px}
-    h1{font-size:clamp(1.6rem,4vw,2rem);font-weight:700;margin:1rem 0 .3rem}
-    h2{font-size:clamp(.9rem,2.5vw,1rem);font-weight:400;color:#475569;margin-bottom:2rem}
 
-    /* link buttons */
-    .link-btn{
-      display:block;max-width:320px;width:100vw;background:var(--c-primary);color:#fff;text-decoration:none;text-align:center;
-      padding:.9rem 1.1rem;margin:.45rem auto;border-radius:var(--radius);font-weight:600;font-size:1.05rem;
-      box-shadow:0 2px 6px rgba(0,0,0,.08);transition:.18s ease-in-out;
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    .link-btn:hover{background:var(--c-primary-d);transform:translateY(-3px);box-shadow:0 4px 10px rgba(0,0,0,.12)}
 
-    /* footer */
-    footer{margin-top:auto;padding:2rem 0 1rem;font-size:.8rem;color:#94a3b8;text-align:center}
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      background: var(--c-bg);
+      color: var(--c-dark);
+      padding: 0 1rem;
+      animation: fadeIn 1s ease-in;
+    }
+
+    header {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    header img {
+      width: 120px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2rem);
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      font-weight: 400;
+      color: #475569;
+      margin: 0.5rem 0 2rem;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      max-width: 340px;
+      width: 100%;
+      background: var(--c-primary);
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      padding: 1rem 1.2rem;
+      margin: 0.5rem auto;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 1.05rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .link-btn:hover {
+      background: var(--c-primary-d);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 2rem 0 1rem;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
   <header>
     <img src="logoENG.png" alt="LFMT logo" />
     <h1>LFMT • Injecting AI into UAV Design</h1>
-    <h2>Resources & social links from the paper presentation</h2>
+    <h2>Presentation resources, downloads & social links</h2>
   </header>
 
-  <!-- Links hub -->
-  <a class="link-btn" href="https://lfmt.gr/" target="_blank">LFMT Lab Website</a>
-  <a class="link-btn" href="https://www.linkedin.com/company/uav-irc/" target="_blank">UAV-iRC LinkedIn Page</a>
-  <a class="link-btn" href="https://www.linkedin.com/in/chris-pliakos/ " target="_blank">Presenter LinkedIn</a>
-  <a class="link-btn" href="https://scholar.google.com/citations?user=_JL17xsAAAAJ&hl=el" target="_blank">Google Scholar Profile</a>
-  <a class="link-btn" href="/assets/paper_AIAA.pdf" target="_blank">Download the Conference Paper (PDF)</a>
-  <a class="link-btn" href="mailto:pliakosc@auth.gr">Contact the Team ✉️</a>
+  <a class="link-btn" href="https://lfmt.gr/" target="_blank"><i class="fas fa-globe"></i> LFMT Lab Website</a>
+  <a class="link-btn" href="https://www.linkedin.com/company/uav-irc/" target="_blank"><i class="fab fa-linkedin"></i> UAV-iRC LinkedIn Page</a>
+  <a class="link-btn" href="https://www.linkedin.com/in/chris-pliakos/" target="_blank"><i class="fab fa-linkedin"></i> Presenter LinkedIn</a>
+  <a class="link-btn" href="https://scholar.google.com/citations?user=_JL17xsAAAAJ&hl=el" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar Profile</a>
+  <a class="link-btn" href="/assets/paper_AIAA.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Download the Conference Paper</a>
+  <a class="link-btn" href="mailto:pliakosc@auth.gr"><i class="fas fa-envelope"></i> Contact the Team</a>
 
   <footer>
-    © 2025 Laboratory for Fluid Mechanics & Turbomachinery, AUTH
+    © 2025 Laboratory for Fluid Mechanics & Turbomachinery, AUTH
   </footer>
 </body>
 </html>
