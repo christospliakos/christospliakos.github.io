@@ -140,7 +140,17 @@
     /* Dropdown Styles */
     .dropdown {
       position: relative;
-      flex-direction: column;
+      display: flex;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
       cursor: pointer;
     }
 
@@ -206,8 +216,8 @@
       <i class="fab fa-researchgate"></i>ResearchGate</a>
 
     <!-- Dropdown for papers -->
-    <div class="link-card dropdown">
-      <i class="fas fa-file-pdf"></i>
+    <div class="dropdown">
+      <i class="fas fa-file-pdf" style="color: #e74c3c;"></i>
       <div class="dropdown-wrapper">
         <span>Download Papers</span>
         <ul class="dropdown-list">
